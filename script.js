@@ -51,7 +51,6 @@ function addTask() {
   document.getElementById("priority").value = "High";
 }
 
-// 🔽 ADD THIS AFTER addTask FUNCTION
 document.getElementById("task-input").addEventListener("keydown", function(e) {
   if (e.key === "Enter") {
     addTask();
@@ -74,7 +73,6 @@ themeBtn.onclick = toggleTheme;
 document.body.classList.toggle('dark', darkMode);
 themeBtn.textContent = darkMode ? "🌙" : "🌞";
 
-// Drag and Drop Sorting
 function addDragListeners() {
   const draggables = document.querySelectorAll("li.task");
 
@@ -104,3 +102,4 @@ function drop(e) {
 }
 
 renderTasks();
+
