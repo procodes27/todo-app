@@ -44,25 +44,27 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 input[type="text"],
 input[type="date"],
 select {
-  flex: 1;
-  padding: 8px;
-  border-radius: 5px;
+  flex: 1 1 150px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 button {
-  padding: 8px 16px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 16px;
   border: none;
   background-color: #28a745;
   color: white;
-  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -88,6 +90,29 @@ li.task {
   background-color: #444;
 }
 
+.hint {
+  margin: 6px 0 14px;
+  color: #666;
+  font-size: 13px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  padding: 6px 8px;
+  margin-left: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.control-btn:active,
+.control-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* larger delete button for touch */
 .delete {
   background: none;
   color: red;
@@ -97,13 +122,162 @@ li.task {
   line-height: 1;
   font-weight: bold;
   transition: background-color 0.5s ease, color 0.5s ease;
+  padding: 8px;
+  border-radius: 6px;
 }
 
 .delete:hover {
-  background: darkred;
+  background: rgba(255,0,0,0.1);
 }
 
-.info {
-  flex: 1;
-  margin-right: 10px;
+/* Palette container and buttons */
+.palette {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* small pill buttons showing gradients */
+.color-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  flex: 0 0 auto;
+}
+
+/* hover/press */
+.color-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.12); }
+.color-btn:active { transform: translateY(0); }
+
+/* active selection */
+.color-btn.active {
+  border-color: rgba(255,255,255,0.9);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.20), 0 0 10px rgba(255,255,255,0.12) inset;
+}
+
+/* responsive: stack inputs on small screens */
+@media (max-width: 600px) {
+  /* compact mobile layout */
+  body {
+    padding: 10px;
+    background-color: #efefef;
+  }
+
+  .container {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 12px;
+    min-height: auto;
+    max-height: calc(100vh - 40px);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Make inputs visually smaller and tighter */
+  .input-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* task text input should occupy full row */
+  .input-area > input[type="text"] {
+    flex: 1 1 100%;
+    padding: 8px;
+    font-size: 14px;
+    height: 40px;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  /* date and priority placed side-by-side to save vertical space */
+  .input-area > input[type="date"],
+  .input-area > select {
+    flex: 1 1 calc(50% - 6px);
+    padding: 7px 8px;
+    font-size: 14px;
+    height: 38px;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  /* add small gap around action button and keep it compact */
+  .input-area > button {
+    flex: 1 1 100%;
+    max-width: 140px;
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    align-self: flex-end;
+  }
+
+  /* Reduce list/card prominence */
+  #task-list {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding-right: 6px;
+    margin-top: 6px;
+    max-height: calc(100vh - 200px);
+  }
+
+  li.task {
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  }
+
+  .info {
+    font-size: 14px;
+    flex: 1 1 auto;
+    word-break: break-word;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+    margin-left: 6px;
+  }
+
+  .control-btn,
+  .delete {
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+
+  .hint {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .palette { gap: 6px; margin-bottom: 8px; }
+  .color-btn { width: 32px; height: 32px; border-radius: 6px; }
+}
+
+/* small polish for pointer devices */
+@media (hover: hover) {
+  li.task:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
 }
