@@ -1,6 +1,6 @@
 # Todo App
 
-Live demo: https://procodes27.github.io/todo-app/
+Live demo: https://prinse27.github.io/todo-app/
 
 A simple, responsive Todo web app to track tasks. This repository contains the static site files (HTML, CSS, JavaScript, and assets) used to power the GitHub Pages demo above.
 
@@ -23,7 +23,7 @@ If your app implements additional features (drag & drop reordering, sync to a ba
 ## Getting started (local)
 Option 1 — Open locally:
 1. Clone the repo:
-   git clone https://github.com/procodes27/todo-app.git
+   git clone https://github.com/prinse27/todo-app.git
 2. Open `index.html` in your browser.
 
 Option 2 — Run a simple local server (recommended):
@@ -51,7 +51,7 @@ Your browser will open a local dev server and auto-reload on changes.
 This repository is already configured for GitHub Pages. To publish updates:
 1. Commit and push changes to the `main` branch (or the branch configured in repo settings).
 2. GitHub Pages will serve the site at:
-   https://procodes27.github.io/todo-app/
+   https://prinse27.github.io/todo-app/
 
 To use a custom domain, add a `CNAME` file to the repo and configure DNS with your domain provider.
 
@@ -66,5 +66,5 @@ Contributions are welcome — open a PR for bug fixes, UI improvements, accessib
 Add a LICENSE file to apply an open-source license (MIT is a common choice).
 
 ## Contact
-- GitHub: https://github.com/procodes27
-- Site: https://procodes27.github.io/todo-app/
+- GitHub: https://github.com/prinse27
+- Site: https://prinse27.github.io/todo-app/
